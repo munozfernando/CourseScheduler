@@ -1,2 +1,4 @@
 # Course scheduler for COB
-Domain: Domain: http://daedriqi-001-site3.btempurl.com/ 
+Domain: Domain: http://scheduler.jdurfee.com
+Username: Admin
+Password: tester
