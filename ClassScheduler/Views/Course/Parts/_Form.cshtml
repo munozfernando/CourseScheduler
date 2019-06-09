@@ -1,0 +1,71 @@
+﻿@model ClassScheduler.Models.Course
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="form-group">
+    <label asp-for="Department" class="control-label"></label>
+    <select asp-for="DepartmentID" class="form-control chosen-select" asp-items="ViewBag.DepartmentID"></select>
+    <span asp-validation-for="DepartmentID" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Number" class="control-label"></label>
+    <input asp-for="Number" class="form-control" />
+    <span asp-validation-for="Number" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Title" class="control-label"></label>
+    <input asp-for="Title" class="form-control" />
+    <span asp-validation-for="Title" class="text-danger"></span>
+</div>
+<div class="form-group">
+    @Html.EditorFor(model => model.IsCrossListed)
+    <label asp-for="IsCrossListed" class="control-label lblCheckbox"></label>
+</div>
+<div id="divCrossListedSelect" class="form-group">
+    <label asp-for="CrossListedCourseID" class="control-label"></label>
+    <div class="form-group">
+        <select id="CrossListedDepartmentID" class="form-control chosen-select form-control-minor-select" asp-items="ViewBag.CrossListedDepartmentID"></select>
+        <select asp-for="CrossListedCourseID" class="form-control chosen-select form-control-minor" asp-items="ViewBag.CrossListedCourseNumbers"></select>
+        <a id="actionUpdateCrossListedCourse" asp-action="FillCourseNumbers"></a>
+    </div>
+</div>
+<div class="form-group">
+    @Html.EditorFor(model => model.IsCrossScheduled)
+    <label asp-for="IsCrossScheduled" class="control-label lblCheckbox"></label>
+</div>
+<div id="divCrossScheduledSelect" class="form-group">
+    <label asp-for="CrossScheduledCourseID" class="control-label"></label>
+    <div class="form-group">
+        <select id="CrossScheduledDepartmentID" class="form-control chosen-select form-control-minor-select" asp-items="ViewBag.CrossScheduledDepartmentID"></select>
+        <select asp-for="CrossScheduledCourseID" class="form-control chosen-select form-control-minor" asp-items="ViewBag.CrossScheduledCourseNumbers"></select>
+        <a id="actionUpdateCrossScheduledCourse" asp-action="FillCourseNumbers"></a>
+    </div>
+</div>
+<div class="form-group">
+    <label asp-for="Description" class="control-label"></label>
+    <textarea asp-for="Description" class="form-control" rows="10"></textarea>
+    <span asp-validation-for="Description" class="text-danger"></span>
+</div>
+<div class="form-group">
+    @Html.EditorFor(model => model.IsFixedCredit)
+    <label asp-for="IsFixedCredit" class="control-label lblCheckbox"></label>
+</div>
+<div id="divVariedCredits">
+    <div class="form-group">
+        <label asp-for="MinimumCredits" class="control-label"></label>
+        <input asp-for="MinimumCredits" class="form-control" />
+        <span asp-validation-for="MinimumCredits" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="MaximumCredits" class="control-label"></label>
+        <input asp-for="MaximumCredits" class="form-control" />
+        <span asp-validation-for="MaximumCredits" class="text-danger"></span>
+    </div>
+</div>
+<div id="divFixedCredits">
+    <div class="form-group">
+        <label asp-for="FixedCredits" class="control-label"></label>
+        <input asp-for="FixedCredits" class="form-control" />
+        <span asp-validation-for="FixedCredits" class="text-danger"></span>
+    </div>
+</div>
+

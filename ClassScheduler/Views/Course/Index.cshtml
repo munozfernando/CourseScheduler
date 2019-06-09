@@ -1,0 +1,54 @@
+﻿@model IEnumerable<ClassScheduler.Models.Course>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Courses</h2>
+
+<p>
+    <a asp-action="Create">Create New</a><br />
+    @*<a asp-action="Sync")>Sync with Catalog</a>*@
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Number)
+            </th>
+            <th>
+                Credits
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Department)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+            <tr class="trEditableRow">
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ID" class="tdEditorLink"></a>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @item.Department.Abbreviation @Html.DisplayFor(modelItem => item.Number)
+                </td>
+                <td>
+                    @if (item.IsFixedCredit) {
+                        @Html.DisplayFor(modelItem => item.FixedCredits)
+                    }
+                    else {
+                        @Html.DisplayFor(modelItem => item.MinimumCredits) <span>-</span> @Html.DisplayFor(modelItem => item.MaximumCredits)
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Department.Name)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

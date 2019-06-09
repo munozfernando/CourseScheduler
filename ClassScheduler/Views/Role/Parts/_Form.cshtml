@@ -1,0 +1,63 @@
+﻿@model ClassScheduler.Models.Role
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="form-group">
+    <label asp-for="Name" class="control-label"></label>
+    <input asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <div class="checkbox">
+        <label>
+            <input asp-for="IsAdmin" /> @Html.DisplayNameFor(model => model.IsAdmin)
+        </label>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.Buildings)
+    @Html.EditorFor(model => model.Buildings)
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.Campuses)
+    @Html.EditorFor(model => model.Campuses)
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.Courses)
+    @Html.EditorFor(model => model.Courses)
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.Days)
+    @Html.EditorFor(model => model.Days)
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.Instructors)
+    @Html.EditorFor(model => model.Instructors)
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.Roles)
+    @Html.EditorFor(model => model.Roles)
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.Rooms)
+    @Html.EditorFor(model => model.Rooms)
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.ScheduleTypes)
+    @Html.EditorFor(model => model.ScheduleTypes)
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.Sections)
+    @Html.EditorFor(model => model.Sections)
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.Spreadsheets)
+    @Html.EditorFor(model => model.Spreadsheets)
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.Departments)
+    @Html.EditorFor(model => model.Departments)
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.Users)
+    @Html.EditorFor(model => model.Users)
+</div>

@@ -1,0 +1,77 @@
+﻿@model IEnumerable<ClassScheduler.Models.Room>
+@{
+    ViewData["Title"] = "Index";
+}
+<input style="float: right; margin-top: 25px;" class="btn btn-default" value="Toggle Time Format" type="button" onclick="TimeToggle();" />
+<a id="TimeToggle" asp-action="ToggleTimeFormat"></a>
+@if (ViewBag.AcademicSemester != null) {
+    <h2>Room Schedules @ViewBag.AcademicSemester</h2>
+}
+else {
+    <h2>Rooms</h2>
+}
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<partial name="_AcademicSemesterSelector" />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Building)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Building.Campus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SeatsAvailable)
+            </th>
+            <th>
+                Classes Scheduled
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Details)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+        <tr class="trEditableRow">
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID" class="tdEditorLink"></a>
+                @if (item.Building != null) {
+                @Html.DisplayFor(modelItem => item.Building.Abbreviation)
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Building.Campus.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SeatsAvailable)
+            </td>
+            <td>
+                @for (int sectionIndex = 0; sectionIndex < ViewBag.RoomSections[item.ID].Count; sectionIndex++) {
+                if (ViewBag.RoomSections[item.ID][sectionIndex].Course != null) {
+                <div>
+                    <a asp-controller="Section" asp-action="Edit" asp-route-id='@ViewBag.RoomSections[item.ID][sectionIndex].ID'>@ViewBag.RoomSections[item.ID][sectionIndex].Course.Name : @ViewBag.RoomSections[item.ID][sectionIndex].DayDisplay : @ViewBag.RoomSections[item.ID][sectionIndex].StartTimeDisplay - @ViewBag.RoomSections[item.ID][sectionIndex].EndTimeDisplay</a>
+                </div>
+                }
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Details)
+            </td>
+        </tr>
+
+        }
+    </tbody>
+</table>

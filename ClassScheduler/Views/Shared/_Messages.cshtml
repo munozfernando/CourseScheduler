@@ -1,0 +1,15 @@
+﻿@if (SessionVariables.ErrorMessage != "" && SessionVariables.ShowMessage) {
+    <h1 class="errorMessage message">@SessionVariables.ErrorMessage</h1>
+    SessionVariables.ShowMessage = false;
+    SessionVariables.ErrorMessage = "";
+}
+else if (SessionVariables.SuccessMessage != "" && SessionVariables.ShowMessage) {
+    <h1 class="successMessage message">@SessionVariables.SuccessMessage</h1>
+    SessionVariables.ShowMessage = false;
+    SessionVariables.SuccessMessage = "";
+}
+else if (SessionVariables.ErrorMessageStay != "" && SessionVariables.ShowMessage) {
+    <h1 class="errorMessageStay message">@SessionVariables.ErrorMessageStay</h1>
+    SessionVariables.ShowMessage = false;
+    SessionVariables.ErrorMessageStay = "";
+}

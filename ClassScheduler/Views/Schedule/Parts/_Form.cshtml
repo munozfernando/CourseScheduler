@@ -1,0 +1,23 @@
+﻿@model ClassScheduler.Models.Schedule
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="form-group">
+    <label asp-for="StartTime" class="control-label"></label>
+    <input asp-for="StartTime" class="form-control" />
+    <span asp-validation-for="StartTime" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="EndTime" class="control-label"></label>
+    <input asp-for="EndTime" class="form-control" />
+    <span asp-validation-for="EndTime" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="College" class="control-label"></label>
+    <input asp-for="College" class="form-control" />
+    <span asp-validation-for="College" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="DaysSelected" class="control-label"></label>
+    <input type="text" asp-for="DaysSelected" class="form-control" />
+    <span asp-validation-for="DaysSelected" class="text-danger"></span>
+</div>

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<ClassScheduler.Models.AcademicSemester>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Academic Semesters</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AcademicYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Semester)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+            <tr class="trEditableRow">
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ID" class="tdEditorLink"></a>
+                    @Html.DisplayFor(modelItem => item.AcademicYear)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Semester.Name)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

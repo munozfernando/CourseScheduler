@@ -1,0 +1,28 @@
+﻿@model ClassScheduler.Models.ScheduleType
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="form-group">
+    <label asp-for="Name" class="control-label"></label>
+    <input asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Abbreviation" class="control-label"></label>
+    <input asp-for="Abbreviation" class="form-control" />
+    <span asp-validation-for="Abbreviation" class="text-danger"></span>
+</div>
+<div class="form-group">
+    @Html.EditorFor(model => model.RequiresRoom)
+    <label asp-for="RequiresRoom" class="control-label lblCheckbox"></label>
+    <span asp-validation-for="RequiresRoom" class="text-danger"></span>
+</div>
+<div class="form-group">
+    @Html.EditorFor(model => model.RequiresDays)
+    <label asp-for="RequiresDays" class="control-label lblCheckbox"></label>
+    <span asp-validation-for="RequiresDays" class="text-danger"></span>
+</div>
+<div class="form-group">
+    @Html.EditorFor(model => model.RequiresTimes)
+    <label asp-for="RequiresTimes" class="control-label lblCheckbox"></label>
+    <span asp-validation-for="RequiresTimes" class="text-danger"></span>
+</div>

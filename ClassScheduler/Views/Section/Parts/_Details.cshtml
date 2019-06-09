@@ -1,0 +1,52 @@
+﻿@model ClassScheduler.Models.Section
+
+<dl class="dl-horizontal">
+    <dt>
+        @Html.DisplayNameFor(model => model.Course)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.SectionNumberAndCourseName)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Room)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Room.Name)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.StudentLimit)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.StudentLimit)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.AcademicSemester)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.AcademicSemester.Display)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.PartOfTerm)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.PartOfTerm.Name)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.ScheduleType)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.ScheduleType.Name)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.RequiresPermission)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.RequiresPermission)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.RequiresMoodle)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.RequiresMoodle)
+    </dd>
+</dl>

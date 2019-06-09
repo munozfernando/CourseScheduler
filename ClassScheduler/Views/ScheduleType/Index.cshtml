@@ -1,0 +1,55 @@
+﻿@model IEnumerable<ClassScheduler.Models.ScheduleType>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Schedule Types</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Abbreviation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequiresRoom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequiresDays)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequiresTimes)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+        <tr class="trEditableRow">
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID" class="tdEditorLink"></a>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Abbreviation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequiresRoom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequiresDays)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequiresTimes)
+            </td>
+
+        </tr>
+        }
+    </tbody>
+</table>

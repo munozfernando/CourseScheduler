@@ -1,0 +1,32 @@
+﻿@model ClassScheduler.Models.RolePermission
+
+<table>
+    <tr class="trRolePermission">
+        <th>
+            <label asp-for="CanDelete"></label>
+        </th>
+        <th>
+            <label asp-for="CanAdd"></label>
+        </th>
+        <th>
+            <label asp-for="CanView"></label>
+        </th>
+        <th>
+            <label asp-for="CanEdit"></label>
+        </th>
+    </tr>
+    <tr class="trRolePermission">
+        <td>
+            @Html.DisplayFor(model => model.CanDelete)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.CanAdd)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.CanView)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.CanEdit)
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,127 @@
+﻿@model Dictionary<string, List<Section>>
+<span class="panel-title" id="selectionTitle">Which information would you like to keep?</span>
+<a id="linkSectionCompare" asp-action="SectionCompare" asp-controller="ImportExport"></a>
+<a id="linkSectionHome" asp-action="Index" asp-controller="Section"></a>
+
+@for (int compareIndex = 0; compareIndex < Model["Old Sections"].Count; compareIndex++) {
+    <div id="@("divOldComparer" + compareIndex)" onclick="Test(@Model["Old Sections"][compareIndex].ID, @compareIndex);" class="importedSections sectionSelection">
+        <h2>Spreadsheet Section</h2>
+        <div class="divSectionComparer">
+            <div>@Model["Old Sections"][compareIndex].SectionNumberAndCourseName @Model["Old Sections"][compareIndex].AcademicSemester.Display</div>
+            <div>
+                @if (@Model["Old Sections"][compareIndex].DayDisplay != "") {
+                    <span>Days Held: @Model["Old Sections"][compareIndex].DayDisplay | </span>
+                }
+                else {
+                    <span>Days Held: Not set | </span>
+                }
+                @if (@Model["Old Sections"][compareIndex].StartTimeDisplay != "" && @Model["Old Sections"][compareIndex].EndTimeDisplay != "") {
+                    <span>Time: @Model["Old Sections"][compareIndex].StartTimeDisplay - @Model["Old Sections"][compareIndex].EndTimeDisplay | </span>
+                }
+                else {
+                    <span>Time: Not set | </span>
+                }
+                @if (@Model["Old Sections"][compareIndex].Room != null) {
+                    <span>Location: @Model["Old Sections"][compareIndex].Room.NameAndCampus</span>
+                }
+                else {
+                    <span>Location: Not set</span>
+                }
+            </div>
+            <div>
+                @if (@Model["Old Sections"][compareIndex].PrimaryInstructor != null) {
+                    <span>Primary Instructor: @Model["Old Sections"][compareIndex].PrimaryInstructor.FullName Teaching Percent: @Model["Old Sections"][compareIndex].PrimaryInstructorPercent% | </span>
+                }
+                else {
+                    <span>Primary Instructor: None | </span>
+                }
+            </div>
+            <div>
+                @if (@Model["Old Sections"][compareIndex].SecondaryInstructor != null) {
+                    <span>Secondary Instructor: @Model["Old Sections"][compareIndex].SecondaryInstructor.FullName Teaching Percent: @Model["Old Sections"][compareIndex].SecondaryInstructorPercent%</span>
+                }
+                else {
+                    <span>Secondary Instructor: None</span>
+                }
+            </div>
+            <div>
+                <span>Requires Moodle: @Model["Old Sections"][compareIndex].RequiresMoodle | </span>
+                <span>Requires Permission: @Model["Old Sections"][compareIndex].RequiresPermission</span>
+            </div>
+            <div>
+                @if (@Model["Old Sections"][compareIndex].PartOfTerm != null) {
+                    <span>Part of Term: @Model["Old Sections"][compareIndex].PartOfTerm.Name | </span>
+                }
+                else {
+                    <span>Part of Term: Not set | </span>
+                }
+                @if (@Model["Old Sections"][compareIndex].ScheduleType != null) {
+                    <span>Schedule Type: @Model["Old Sections"][compareIndex].ScheduleType.Abbreviation</span>
+                }
+                else {
+                    <span>Schedule Type: Not set</span>
+                }
+            </div>
+        </div>
+    </div>
+    <div id="@("divNewComparer" + compareIndex)" onclick="Test(@Model["New Sections"][compareIndex].ID, @compareIndex);" class="currentSections sectionSelection">
+        <h2>Currently stored Section</h2>
+        <div class="divSectionComparer">
+            <div>@Model["New Sections"][compareIndex].SectionNumberAndCourseName @Model["New Sections"][compareIndex].AcademicSemester.Display</div>
+            <div>
+                @if (@Model["New Sections"][compareIndex].DayDisplay != "") {
+                    <span>Days Held: @Model["New Sections"][compareIndex].DayDisplay | </span>
+                }
+                else {
+                    <span>Days Held: Not set | </span>
+                }
+                @if (@Model["New Sections"][compareIndex].StartTimeDisplay != "" && @Model["New Sections"][compareIndex].EndTimeDisplay != "") {
+                    <span>Time: @Model["New Sections"][compareIndex].StartTimeDisplay - @Model["New Sections"][compareIndex].EndTimeDisplay | </span>
+                }
+                else {
+                    <span>Time: Not set | </span>
+                }
+                @if (@Model["New Sections"][compareIndex].Room != null) {
+                    <span>Location: @Model["New Sections"][compareIndex].Room.NameAndCampus</span>
+                }
+                else {
+                    <span>Location: Not set</span>
+                }
+            </div>
+            <div>
+                @if (@Model["New Sections"][compareIndex].PrimaryInstructor != null) {
+                    <span>Primary Instructor: @Model["New Sections"][compareIndex].PrimaryInstructor.FullName @Model["New Sections"][compareIndex].PrimaryInstructorPercent% | </span>
+                }
+                else {
+                    <span>Primary Instructor: None | </span>
+                }
+            </div>
+            <div>
+                @if (@Model["New Sections"][compareIndex].SecondaryInstructor != null) {
+                    <span>Secondary Instructor: @Model["New Sections"][compareIndex].SecondaryInstructor.FullName @Model["New Sections"][compareIndex].SecondaryInstructorPercent%</span>
+                }
+                else {
+                    <span>Secondary Instructor: None</span>
+                }
+            </div>
+            <div>
+                <span>Requires Moodle: @Model["New Sections"][compareIndex].RequiresMoodle | </span>
+                <span>Requires Permission: @Model["New Sections"][compareIndex].RequiresPermission</span>
+            </div>
+            <div>
+                @if (@Model["New Sections"][compareIndex].PartOfTerm != null) {
+                    <span>Part of Term: @Model["New Sections"][compareIndex].PartOfTerm.Name | </span>
+                }
+                else {
+                    <span>Part of Term: Not set | </span>
+                }
+                @if (@Model["New Sections"][compareIndex].ScheduleType != null) {
+                    <span>Schedule Type: @Model["New Sections"][compareIndex].ScheduleType.Abbreviation</span>
+                }
+                else {
+                    <span>Schedule Type: Not set</span>
+                }
+            </div>
+        </div>
+    </div>
+}

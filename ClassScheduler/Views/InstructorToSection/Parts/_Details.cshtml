@@ -1,0 +1,28 @@
+﻿@model ClassScheduler.Models.InstructorToSection
+
+<dl class="dl-horizontal">
+    <dt>
+        @Html.DisplayNameFor(model => model.Instructor)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Instructor.FullName)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Section)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Section.CRN)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.IsPrimary)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.IsPrimary)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.TeachingPercentage)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.TeachingPercentage)
+    </dd>
+</dl>

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<ClassScheduler.Models.Department>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Departments</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Abbreviation)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+            <tr class="trEditableRow">
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ID" class="tdEditorLink"></a>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Abbreviation)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

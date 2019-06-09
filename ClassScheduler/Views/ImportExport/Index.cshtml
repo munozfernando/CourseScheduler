@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Import/Export</h1>
+
+<p>Upload the class scheduler spreadsheet to edit the data and export it back when done</p>
+
+<partial name="_AcademicSemesterSelector" />
+
+@using (Html.BeginForm("ImportSpreadsheet", "ImportExport", FormMethod.Post, new { enctype = "multipart/form-data" })) {
+    <div class="row">
+        <div class="custom-file-div">
+            <label class="btn btn-default btn-file custom-file-label">
+                Select spreadsheet file
+                <input onchange="UpdateFileNameDiv($(this).val());" type="file" class="custom-file-input" id="fUpload" name="file" />
+            </label>
+            <div id="divFileNameDisplay" class="col-md-8"></div>
+        </div>
+        <div class="col-md-8">
+            <input type="submit" id="btnUpload" value="Upload" />
+        </div>
+    </div>
+}
+
+<br />
+@using (Html.BeginForm("ExportToExcel", "ImportExport", FormMethod.Post, new { enctype = "multipart/form-data" })) {
+    <div class="row">
+        <div class="col-md-12">
+            <label>Download updated spreadsheet</label>
+        </div>
+        <div class="col-md-8">
+            <input type="submit" id="btnExport" value="Export" />
+        </div>
+    </div>
+}

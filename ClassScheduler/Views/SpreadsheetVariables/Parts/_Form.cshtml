@@ -1,0 +1,251 @@
+﻿@model ClassScheduler.Models.SpreadsheetVariables
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="form-group">
+    <label>Select the template spreadsheet</label>
+</div>
+<div class="row">
+    <div class="custom-file-div">
+        <label class="btn btn-default btn-file custom-file-label">
+            Select spreadsheet file
+            <input onchange="UpdateFileNameDiv($(this).val());" type="file" class="custom-file-input" id="fUpload" name="file" />
+        </label>
+        <div id="divFileNameDisplay" class="col-md-8"></div>
+    </div>
+</div>
+<br>
+<div class="form-group">
+    <label asp-for="StartingRowNumber" class="control-label"></label>
+    <input asp-for="StartingRowNumber" class="form-control" />
+    <span asp-validation-for="StartingRowNumber" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="AcademicSemester" class="control-label"></label>
+    <input asp-for="AcademicSemester" class="form-control" />
+    <span asp-validation-for="AcademicSemester" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="AddChangeDelete" class="control-label"></label>
+    <input asp-for="AddChangeDelete" class="form-control" />
+    <span asp-validation-for="AddChangeDelete" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Department" class="control-label"></label>
+    <input asp-for="Department" class="form-control" />
+    <span asp-validation-for="Department" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="SectionCRN" class="control-label"></label>
+    <input asp-for="SectionCRN" class="form-control" />
+    <span asp-validation-for="SectionCRN" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="CourseNumber" class="control-label"></label>
+    <input asp-for="CourseNumber" class="form-control" />
+    <span asp-validation-for="CourseNumber" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="SectionNumber" class="control-label"></label>
+    <input asp-for="SectionNumber" class="form-control" />
+    <span asp-validation-for="SectionNumber" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="CrossListID" class="control-label"></label>
+    <input asp-for="CrossListID" class="form-control" />
+    <span asp-validation-for="CrossListID" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="CourseTitle" class="control-label"></label>
+    <input asp-for="CourseTitle" class="form-control" />
+    <span asp-validation-for="CourseTitle" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Campus" class="control-label"></label>
+    <input asp-for="Campus" class="form-control" />
+    <span asp-validation-for="Campus" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="ScheduleType" class="control-label"></label>
+    <input asp-for="ScheduleType" class="form-control" />
+    <span asp-validation-for="ScheduleType" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="MoodleRequired" class="control-label"></label>
+    <input asp-for="MoodleRequired" class="form-control" />
+    <span asp-validation-for="MoodleRequired" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="InstructorApprovalRequired" class="control-label"></label>
+    <input asp-for="InstructorApprovalRequired" class="form-control" />
+    <span asp-validation-for="InstructorApprovalRequired" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="PartOfTerm" class="control-label"></label>
+    <input asp-for="PartOfTerm" class="form-control" />
+    <span asp-validation-for="PartOfTerm" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="FixedCredit" class="control-label"></label>
+    <input asp-for="FixedCredit" class="form-control" />
+    <span asp-validation-for="FixedCredit" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="MinimumCredits" class="control-label"></label>
+    <input asp-for="MinimumCredits" class="form-control" />
+    <span asp-validation-for="MinimumCredits" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="MaximumCredits" class="control-label"></label>
+    <input asp-for="MaximumCredits" class="form-control" />
+    <span asp-validation-for="MaximumCredits" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="ClassLimit" class="control-label"></label>
+    <input asp-for="ClassLimit" class="form-control" />
+    <span asp-validation-for="ClassLimit" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Monday" class="control-label"></label>
+    <input asp-for="Monday" class="form-control" />
+    <span asp-validation-for="Monday" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Tuesday" class="control-label"></label>
+    <input asp-for="Tuesday" class="form-control" />
+    <span asp-validation-for="Tuesday" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Wednesday" class="control-label"></label>
+    <input asp-for="Wednesday" class="form-control" />
+    <span asp-validation-for="Wednesday" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Thursday" class="control-label"></label>
+    <input asp-for="Thursday" class="form-control" />
+    <span asp-validation-for="Thursday" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Friday" class="control-label"></label>
+    <input asp-for="Friday" class="form-control" />
+    <span asp-validation-for="Friday" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Saturday" class="control-label"></label>
+    <input asp-for="Saturday" class="form-control" />
+    <span asp-validation-for="Saturday" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Sunday" class="control-label"></label>
+    <input asp-for="Sunday" class="form-control" />
+    <span asp-validation-for="Sunday" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="StartTime" class="control-label"></label>
+    <input asp-for="StartTime" class="form-control" />
+    <span asp-validation-for="StartTime" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="EndTime" class="control-label"></label>
+    <input asp-for="EndTime" class="form-control" />
+    <span asp-validation-for="EndTime" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Building" class="control-label"></label>
+    <input asp-for="Building" class="form-control" />
+    <span asp-validation-for="Building" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Room" class="control-label"></label>
+    <input asp-for="Room" class="form-control" />
+    <span asp-validation-for="Room" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="RequiresMoodleAbbreviation" class="control-label"></label>
+    <input asp-for="RequiresMoodleAbbreviation" class="form-control" />
+    <span asp-validation-for="RequiresMoodleAbbreviation" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="RequiresPermissionAbbreviation" class="control-label"></label>
+    <input asp-for="RequiresPermissionAbbreviation" class="form-control" />
+    <span asp-validation-for="RequiresPermissionAbbreviation" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="PrimaryInstructorFirstName" class="control-label"></label>
+    <input asp-for="PrimaryInstructorFirstName" class="form-control" />
+    <span asp-validation-for="PrimaryInstructorFirstName" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="PrimaryInstructorLastName" class="control-label"></label>
+    <input asp-for="PrimaryInstructorLastName" class="form-control" />
+    <span asp-validation-for="PrimaryInstructorLastName" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="PrimaryInstructorNumber" class="control-label"></label>
+    <input asp-for="PrimaryInstructorNumber" class="form-control" />
+    <span asp-validation-for="PrimaryInstructorNumber" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="PrimaryInstructorTeachingPercentage" class="control-label"></label>
+    <input asp-for="PrimaryInstructorTeachingPercentage" class="form-control" />
+    <span asp-validation-for="PrimaryInstructorTeachingPercentage" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="SecondaryInstructorFirstName" class="control-label"></label>
+    <input asp-for="SecondaryInstructorFirstName" class="form-control" />
+    <span asp-validation-for="SecondaryInstructorFirstName" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="SecondaryInstructorLastName" class="control-label"></label>
+    <input asp-for="SecondaryInstructorLastName" class="form-control" />
+    <span asp-validation-for="SecondaryInstructorLastName" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="SecondaryInstructorNumber" class="control-label"></label>
+    <input asp-for="SecondaryInstructorNumber" class="form-control" />
+    <span asp-validation-for="SecondaryInstructorNumber" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="SecondaryInstructorTeachingPercentage" class="control-label"></label>
+    <input asp-for="SecondaryInstructorTeachingPercentage" class="form-control" />
+    <span asp-validation-for="SecondaryInstructorTeachingPercentage" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="ClassFeeDetailCode" class="control-label"></label>
+    <input asp-for="ClassFeeDetailCode" class="form-control" />
+    <span asp-validation-for="ClassFeeDetailCode" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="ClassFeeAmount" class="control-label"></label>
+    <input asp-for="ClassFeeAmount" class="form-control" />
+    <span asp-validation-for="ClassFeeAmount" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="SectionNotes" class="control-label"></label>
+    <input asp-for="SectionNotes" class="form-control" />
+    <span asp-validation-for="SectionNotes" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="CrossListSubject" class="control-label"></label>
+    <input asp-for="CrossListSubject" class="form-control" />
+    <span asp-validation-for="CrossListSubject" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="CrossListCourseNumber" class="control-label"></label>
+    <input asp-for="CrossListCourseNumber" class="form-control" />
+    <span asp-validation-for="CrossListCourseNumber" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="DepartmentComments" class="control-label"></label>
+    <input asp-for="DepartmentComments" class="form-control" />
+    <span asp-validation-for="DepartmentComments" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="DefaultFontStyle" class="control-label"></label>
+    <input asp-for="DefaultFontStyle" class="form-control" />
+    <span asp-validation-for="DefaultFontStyle" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="DefaultFontSize" class="control-label"></label>
+    <input asp-for="DefaultFontSize" class="form-control" />
+    <span asp-validation-for="DefaultFontSize" class="text-danger"></span>
+</div>

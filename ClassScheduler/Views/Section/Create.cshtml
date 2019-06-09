@@ -1,0 +1,36 @@
+﻿@model ClassScheduler.Models.Section
+
+<h2>Create Section for @ViewBag.AcademicSemester</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div class="form-group">
+                <label asp-for="Course" class="control-label"></label>
+                <div class="form-group">
+                    <select id="Course_DepartmentID" asp-for="Course.DepartmentID" class="form-control chosen-select form-control-minor-select" asp-items="ViewBag.DepartmentID"></select>
+                    <select asp-for="CourseID" class="form-control chosen-select form-control-minor" asp-items="ViewBag.CourseNumbers"></select>
+                    <a id="actionUpdateCourseList" asp-action="FillCourseNumbers"></a>
+                    <a id="actionUpdateSectionNumber" asp-action="GetNextSectionNumber"></a>
+                    <a asp-controller="Course" asp-action="Create" class="btn btn-default">+</a>
+                </div>
+            </div>
+            <partial name="Parts/_Form" model="@ViewBag.Section" />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/sections.js"></script>
+    <script src="~/js/sectionSetNumber.js"></script>
+}

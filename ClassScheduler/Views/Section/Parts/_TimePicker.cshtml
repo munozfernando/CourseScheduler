@@ -1,0 +1,82 @@
+﻿@model ClassScheduler.Models.Section
+
+<div class="modal fade" id="divTimePickerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Pick a time slot</h5>
+            </div>
+            <div class="divTimeSlotContainer">
+                <div id="divTimeSlotsUnknown">
+                    <div>No default values available for the selected days</div>
+                </div>
+                <div id="divTimeSlotsOneDay">
+                    <div class="divTimeSlotOption">
+                        <input class="radioTimePicker" type="radio" value="Time Slot 1-1" name="TimeSlot" checked="checked" />
+                        <label>4:00 pm - 6:45 pm</label>
+                    </div>
+                    <div class="divTimeSlotOption">
+                        <input class="radioTimePicker" type="radio" value="Time Slot 1-2" name="TimeSlot" checked="checked" />
+                        <label>6:00 pm - 8:45 pm</label>
+                    </div>
+                </div>
+                <div id="divTimeSlotsTwoDays">
+                    <div class="divTimeSlotOption">
+                        <input class="radioTimePicker" type="radio" value="Time Slot 2-1" name="TimeSlot" checked="checked" />
+                        <label>8:00 am - 9:15 am</label>
+                    </div>
+                    <div class="divTimeSlotOption">
+                        <input class="radioTimePicker" type="radio" value="Time Slot 2-2" name="TimeSlot" />
+                        <label>9:30 am - 10:45 am</label>
+                    </div>
+                    <div class="divTimeSlotOption">
+                        <input class="radioTimePicker" type="radio" value="Time Slot 2-3" name="TimeSlot" />
+                        <label>11:00 am - 12:15 pm</label>
+                    </div>
+                    <div class="divTimeSlotOption">
+                        <input class="radioTimePicker" type="radio" value="Time Slot 2-4" name="TimeSlot" />
+                        <label>1:00 pm - 2:15 pm</label>
+                    </div>
+                    <div class="divTimeSlotOption">
+                        <input class="radioTimePicker" type="radio" value="Time Slot 2-5" name="TimeSlot" />
+                        <label>1:30 pm - 2:45 pm</label>
+                    </div>
+                    <div class="divTimeSlotOption">
+                        <input class="radioTimePicker" type="radio" value="Time Slot 2-6" name="TimeSlot" />
+                        <label>2:30 pm - 3:45 pm</label>
+                    </div>
+                    <div class="divTimeSlotOption">
+                        <input class="radioTimePicker" type="radio" value="Time Slot 2-7" name="TimeSlot" />
+                        <label>3:00 pm - 4:15 pm</label>
+                    </div>
+                </div>
+                <div id="divTimeSlotsThreeDays">
+                    <div class="divTimeSlotOption">
+                        <input class="radioTimePicker" type="radio" value="Time Slot 3-1" name="TimeSlot" checked="checked" />
+                        <label>8:00 am - 8:50 am</label>
+                    </div>
+                    <div class="divTimeSlotOption">
+                        <input class="radioTimePicker" type="radio" value="Time Slot 3-2" name="TimeSlot" />
+                        <label>9:00 am - 9:50 am</label>
+                    </div>
+                    <div class="divTimeSlotOption">
+                        <input class="radioTimePicker" type="radio" value="Time Slot 3-3" name="TimeSlot" />
+                        <label>10:00 am - 10:50 am</label>
+                    </div>
+                    <div class="divTimeSlotOption">
+                        <input class="radioTimePicker" type="radio" value="Time Slot 3-4" name="TimeSlot" />
+                        <label>11:00 am - 11:50 am</label>
+                    </div>
+                    <div class="divTimeSlotOption">
+                        <input class="radioTimePicker" type="radio" value="Time Slot 3-5" name="TimeSlot" />
+                        <label>1:00 pm - 1:50 pm</label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" onclick="SetTime();" class="btn btn-secondary" data-dismiss="modal">Save Choice</button>
+            </div>
+        </div>
+    </div>
+</div>

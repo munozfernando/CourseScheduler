@@ -1,0 +1,43 @@
+﻿@model ClassScheduler.Models.Section
+
+<h2>Edit @Html.DisplayFor(model => model.SectionNumberAndCourseName) @Html.DisplayFor(model => model.Course.Title) for @ViewBag.AcademicSemester</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div class="form-group" hidden>
+                <label asp-for="Course" class="control-label"></label>
+                <div class="form-group">
+                    <select id="Course_DepartmentID" asp-for="Course.DepartmentID" class="form-control chosen-select form-control-minor-select" asp-items="ViewBag.DepartmentID"></select>
+                    <select asp-for="CourseID" class="form-control chosen-select form-control-minor" asp-items="ViewBag.CourseNumbers"></select>
+                    <a id="actionUpdateCourseList" asp-action="FillCourseNumbers"></a>
+                    <a id="actionUpdateSectionNumber" asp-action="GetNextSectionNumber"></a>
+                    <a asp-controller="Course" asp-action="Create" class="btn btn-default">+</a>
+                </div>
+            </div>
+            <partial name="Parts/_Form" />
+            <input type="hidden" asp-for="ID" />
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+                @if (ViewBag.CanDelete) {
+                    <button type="button" value="Delete" class="btn btn-default" data-toggle="modal" data-target="#deleteConfirm">
+                        Delete
+                    </button>
+                }
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<partial name="Parts/_DeleteConfirm" />
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/sections.js"></script>
+}

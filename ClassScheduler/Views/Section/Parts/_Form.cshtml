@@ -1,0 +1,106 @@
+﻿@model ClassScheduler.Models.Section
+@Html.HiddenFor(sec => sec.CRN)
+@Html.HiddenFor(sec => sec.CrossListedSectionID)
+
+<div class="form-group">
+    <label asp-for="Number" class="control-label"></label>
+    <input asp-for="Number" class="form-control" />
+    <span asp-validation-for="Number" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="ScheduleType" class="control-label"></label>
+    <select asp-for="ScheduleTypeID" class="form-control chosen-select" asp-items="ViewBag.ScheduleTypeID"></select>
+</div>
+<div class="form-group">
+    <label asp-for="PartOfTerm" class="control-label"></label>
+    <select asp-for="PartOfTermID" class="form-control chosen-select" asp-items="ViewBag.PartOfTermID"></select>
+</div>
+<div class="form-group">
+    <label asp-for="StudentLimit" class="control-label"></label>
+    <input asp-for="StudentLimit" class="form-control" />
+    <span asp-validation-for="StudentLimit" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Days" class="control-label"></label>
+    <div class="divDayContainer">
+        <table>
+            <tr>
+                @foreach (Day day in ViewBag.AllDays) {
+                    @if (ViewBag.Days[day.ID]) {
+                        <td>
+                            <label>@day.Name.Substring(0, 3)</label>
+                            <label class="lblCheckContainer">
+                                <input type="checkbox" class="inputDayOptions" name="@day.Name" checked />
+                                <span class="checkmark"></span>
+                            </label>
+                        </td>
+                    }
+                    else {
+                        <td>
+                            <label>@day.Name.Substring(0, 3)</label>
+                            <label class="lblCheckContainer">
+                                <input type="checkbox" class="inputDayOptions" name="@day.Name" />
+                                <span class="checkmark"></span>
+                            </label>
+                        </td>
+                    }
+                }
+                <td><img class="imgDateSelect" onclick="SetDaysChecked();" src="~/css/images/Calendar.png" id="imgTimeSlots" data-toggle="modal" data-target="#divTimePickerModal" /></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="form-group">
+    <label asp-for="StartTime" class="control-label"></label>
+    <input asp-for="StartTime" type="time" class="form-control" />
+    <span asp-validation-for="StartTime" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="EndTime" class="control-label"></label>
+    <input asp-for="EndTime" type="time" class="form-control" />
+    <span asp-validation-for="EndTime" class="text-danger"></span>
+</div>
+<div class="form-group">
+    @Html.EditorFor(model => model.RequiresPermission)
+    <label asp-for="RequiresPermission" class="control-label lblCheckbox"></label>
+</div>
+<div class="form-group">
+    @Html.EditorFor(model => model.RequiresMoodle)
+    <label asp-for="RequiresMoodle" class="control-label lblCheckbox"></label>
+</div>
+<div class="form-group">
+    <label asp-for="Room" class="control-label"></label>
+    <select asp-for="RoomID" class="form-control chosen-select" asp-items="ViewBag.RoomID"></select>
+</div>
+<div class="form-group">
+    <label asp-for="PrimaryInstructor" class="control-label"></label>
+    <select asp-for="PrimaryInstructorID" class="form-control chosen-select" asp-items="ViewBag.PrimaryInstructorID"></select>
+</div>
+<div class="form-group">
+    <label asp-for="PrimaryInstructorPercent" class="control-label"></label>
+    <input asp-for="PrimaryInstructorPercent" class="form-control" />
+    <span asp-validation-for="PrimaryInstructorPercent" class="text-danger"></span>
+</div>
+<div id="divSecondaryInstructor">
+    <div class="form-group">
+        <label asp-for="SecondaryInstructor" class="control-label"></label>
+        <select asp-for="SecondaryInstructorID" class="form-control chosen-select" asp-items="ViewBag.SecondaryInstructorID"></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="SecondaryInstructorPercent" class="control-label"></label>
+        <input asp-for="SecondaryInstructorPercent" class="form-control" />
+        <span asp-validation-for="SecondaryInstructorPercent" class="text-danger"></span>
+    </div>
+</div>
+<div class="form-group">
+    <label asp-for="DepartmentComments" class="control-label"></label>
+    <textarea asp-for="DepartmentComments" class="form-control"></textarea>
+    <span asp-validation-for="DepartmentComments" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Notes" class="control-label"></label>
+    <textarea asp-for="Notes" class="form-control"></textarea>
+    <span asp-validation-for="Notes" class="text-danger"></span>
+</div>
+
+<partial name="Parts/_TimePicker" />

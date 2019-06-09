@@ -1,0 +1,22 @@
+﻿@model ClassScheduler.Models.Room
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="form-group">
+    <label asp-for="Building" class="control-label"></label>
+    <select asp-for="BuildingID" class="form-control chosen-select" asp-items="ViewBag.BuildingID"></select>
+</div>
+<div class="form-group">
+    <label asp-for="Number" class="control-label"></label>
+    <input type="text" asp-for="Number" class="form-control" />
+    <span asp-validation-for="Number" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="SeatsAvailable" class="control-label"></label>
+    <input type="text" asp-for="SeatsAvailable" class="form-control" />
+    <span asp-validation-for="SeatsAvailable" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Details" class="control-label"></label>
+    <textarea asp-for="Details" class="form-control"></textarea>
+    <span asp-validation-for="Details" class="text-danger"></span>
+</div>

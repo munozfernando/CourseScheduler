@@ -1,0 +1,95 @@
+﻿@model List<Tuple<Section, Section, string>>
+@{
+    ViewData["Title"] = "Section Resource Conflicts";
+}
+
+<h2>Inter-Sectional Resource Conflicts</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Course Number
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ElementAt(0).Item1.Course.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ElementAt(0).Item1.CRN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ElementAt(0).Item1.Room.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ElementAt(0).Item1.Days)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ElementAt(0).Item1.StartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ElementAt(0).Item1.EndTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ElementAt(0).Item1.XListID)
+            </th>
+            <th>
+                Conflict Reason
+            </th>
+            <th>
+                Edit To Resolve 
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <p><a asp-controller="Course" asp-action="Edit" asp-route-id="@item.Item1.Course.ID">@Html.DisplayFor(modelItem => item.Item1.Course.Name)</a> - @Html.DisplayFor(modelItem => item.Item1.Number)</p>
+                    <p><a asp-controller="Course" asp-action="Edit" asp-route-id="@item.Item2.Course.ID">@Html.DisplayFor(modelItem => item.Item2.Course.Name)</a> - @Html.DisplayFor(modelItem => item.Item2.Number)</p>
+                </td>
+                <td>
+                    <p>@Html.DisplayFor(modelItem => item.Item1.Course.Title)</p>
+                    <p>@Html.DisplayFor(modelItem => item.Item2.Course.Title)</p>
+                </td>
+                <td>
+                    <p>@Html.DisplayFor(modelItem => item.Item1.CRN)</p>
+                    <p>@Html.DisplayFor(modelItem => item.Item2.CRN)</p>
+
+                </td>
+                <td>
+                    <p>@Html.DisplayFor(modelItem => item.Item1.Room.Name)</p>
+                    <p>@Html.DisplayFor(modelItem => item.Item2.Room.Name)</p>
+                </td>
+                <td>
+                    <p>@Html.DisplayFor(modelItem => item.Item1.Days)</p>
+                    <p>@Html.DisplayFor(modelItem => item.Item2.Days)</p>
+                </td>
+                <td>
+                    <p>@Html.DisplayFor(modelItem => item.Item1.StartTime.TimeOfDay)</p>
+                    <p>@Html.DisplayFor(modelItem => item.Item2.StartTime.TimeOfDay)</p>
+                </td>
+                <td>
+                    <p> @Html.DisplayFor(modelItem => item.Item1.EndTime.TimeOfDay)</p>
+                    <p> @Html.DisplayFor(modelItem => item.Item2.EndTime.TimeOfDay)</p>
+
+                </td>
+                <td>
+                    <p> @Html.DisplayFor(modelItem => item.Item1.XListID)</p>
+                    <p> @Html.DisplayFor(modelItem => item.Item2.XListID)</p>
+                </td>
+                <td>
+                    <p>@Html.DisplayFor(modelItem => item.Item3)</p>
+                </td>
+                <td>
+                    <p>
+                        <a asp-controller="Section" asp-action="Edit" asp-route-id="@item.Item1.ID">Modify Top</a>
+                    </p>
+                    <p>
+                        <a asp-controller="Section" asp-action="Edit" asp-route-id="@item.Item2.ID">Modify Bottom</a>
+                    </p>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,36 @@
+﻿@model ClassScheduler.Models.RolePermission
+
+<table>
+    <tr class="trRolePermission">
+        <th>Can Delete</th>
+        <th>Can Add</th>
+        <th>Can View</th>
+        <th>Can Edit</th>
+    </tr>
+    <tr class="trRolePermission">
+        <td>
+            <label class="lblCheckContainer">
+                <input type="checkbox" asp-for="CanDelete" />
+                <span class="checkmark"></span>
+            </label>
+        </td>
+        <td>
+            <label class="lblCheckContainer">
+                <input type="checkbox" asp-for="CanAdd" />
+                <span class="checkmark"></span>
+            </label>
+        </td>
+        <td>
+            <label class="lblCheckContainer">
+                <input type="checkbox" asp-for="CanView" />
+                <span class="checkmark"></span>
+            </label>
+        </td>
+        <td>
+            <label class="lblCheckContainer">
+                <input type="checkbox" asp-for="CanEdit" />
+                <span class="checkmark"></span>
+            </label>
+        </td>
+    </tr>
+</table>

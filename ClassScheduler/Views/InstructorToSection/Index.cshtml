@@ -1,0 +1,48 @@
+﻿@model IEnumerable<ClassScheduler.Models.InstructorToSection>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Instructors and Sections</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Instructor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Section)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsPrimary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeachingPercentage)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+            <tr class="trEditableRow">
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ID" class="tdEditorLink"></a>
+                    @Html.DisplayFor(modelItem => item.Instructor.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Section.SectionNumberAndCourseName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsPrimary)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeachingPercentage)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

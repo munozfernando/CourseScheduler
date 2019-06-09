@@ -1,0 +1,20 @@
+﻿@model IEnumerable<ClassScheduler.Models.UserSettings>
+@{
+    ViewData["Title"] = "User Settings";
+}
+
+<h2>Settings</h2>
+<label for="oldUserName">Old Username</label><input type="text" id="oldUserName" class="form-control" placeholder="old username">
+<label for="newUserName">New Username</label><input type="text" id="newUserName" class="form-control" placeholder="new username">
+<label for="cfmUserName">Confirm New Username</label><input type="text" id="cfmUserName" class="form-control" placeholder="new username" />
+<label for="pass">Password</label><input type="password" id="pass" class="form-control" placeholder="password" />
+
+<div class="dropdown, timetogglebutton">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Time Formatting
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item">Military</a>
+        <a class="dropdown-item">Standard</a>
+    </div>
+</div>

@@ -1,0 +1,91 @@
+﻿@model IEnumerable<ClassScheduler.Models.Section>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th class="thSectionCourse">
+                @Html.DisplayNameFor(model => model.Course)
+            </th>
+            <th class="thSectionInstructors">
+                @Html.DisplayNameFor(model => model.Instructors)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Days)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Room.Building.Campus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Room)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ScheduleType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentLimit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XListID)
+            </th>
+        </tr>
+    </thead>
+    <tbody id="tbodySections">
+        @foreach (var item in Model) {
+            <tr class="trEditableRow">
+                <td class="thSectionCourse">
+                    <a asp-action="Edit" asp-route-id="@item.ID" class="tdEditorLink"></a>
+                    @Html.DisplayFor(modelItem => item.Course.Department.Abbreviation) @Html.DisplayFor(modelItem => item.Course.Number)<span> - </span>@Html.DisplayFor(modelItem => item.Number)
+                </td>
+                <td class="thSectionInstructors">
+                    @foreach (InstructorToSection instructorToSection in item.Instructors) {
+                        <div>
+                            @Html.DisplayFor(modelItem => instructorToSection.Instructor.FullName)
+                        </div>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Days)
+                </td>
+                <td class="starttime">
+                    @if (item.StartTimeDisplay != "12:00 AM" && item.StartTimeDisplay != "00:00") {
+                        @Html.DisplayFor(modelItem => item.StartTimeDisplay)
+                    }
+                </td>
+                <td class="endtime">
+                    @if (item.EndTimeDisplay != "12:00 AM" && item.EndTimeDisplay != "00:00") {
+                        @Html.DisplayFor(modelItem => item.EndTimeDisplay)
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Room.Building.Campus.Abbreviation)
+                </td>
+                <td>
+                    @if (item.Room != null && item.Room.Building != null && item.Room.Building.Abbreviation == "WEB") {
+                        <span>Web</span>
+                    }
+                    else if (item.Room != null && item.Room.Building != null && item.Room.Number == 0) {
+                        <span>Unknown</span>
+                    }
+                    else {
+                        @Html.DisplayFor(modelItem => item.Room.Name)
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ScheduleType.Abbreviation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentLimit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XListID)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

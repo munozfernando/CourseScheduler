@@ -1,0 +1,85 @@
+﻿@model List<Tuple<Section, List<String>>>
+@{
+    ViewData["Title"] = "Section Data Errors";
+}
+
+<h2>Resolve Each Sections Missing or Bad Data</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ElementAt(0).Item1.SectionNumberAndCourseName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ElementAt(0).Item1.Room.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ElementAt(0).Item1.StartTimeDisplay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ElementAt(0).Item1.EndTimeDisplay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ElementAt(0).Item1.PrimaryInstructor) 
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ElementAt(0).Item1.SecondaryInstructor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ElementAt(0).Item1.DayDisplay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ElementAt(0).Item1.StudentLimitDisplay)
+            </th>
+            <th>
+                Data Errors Found
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr class="trEditableRow">
+            <td>
+                <a asp-controller="Section" asp-action="Edit" asp-route-id="@item.Item1.ID" class="tdEditorLink"></a>
+                @Html.DisplayFor(modelItem => item.Item1.SectionNumberAndCourseName) @Html.DisplayFor(modelItem => item.Item1.Course.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Item1.Room.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Item1.StartTimeDisplay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Item1.EndTimeDisplay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Item1.PrimaryInstructor.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Item1.SecondaryInstructor.FullName)
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Item1.DayDisplay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Item1.StudentLimitDisplay)
+            </td>
+            <td>
+                @foreach(String s in item.Item2)
+                {
+                    <a asp-controller="Section" asp-action="Edit" asp-route-id="@item.Item1.ID">@s</a>
+                    <br/>
+                }
+            </td>
+            @*<td>
+                <p>
+                    <a asp-controller="Section" asp-action="Edit" asp-route-id="@item.Item1.ID">Edit</a>
+                </p>
+            </td>*@
+        </tr>
+        }
+    </tbody>
+</table>

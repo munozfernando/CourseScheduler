@@ -1,0 +1,54 @@
+﻿@model List<Tuple<Instructor, int, List<String>>>
+@{
+    ViewData["Title"] = "Instructor Course Load Issues";
+}
+
+<h2>Instructor Course Load Errors</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ElementAt(0).Item1.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ElementAt(0).Item1.NumberDisplay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ElementAt(0).Item1.CourseLoad)
+            </th>
+            <th>
+                Current Assigned Load
+            </th>
+            <th>
+                Problem
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="trEditableRow">
+                <td>
+                    <a asp-controller="Instructor" asp-action="Edit" asp-route-id="@item.Item1.ID" class="tdEditorLink"></a>
+                    @Html.DisplayFor(modelItem => item.Item1.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Item1.NumberDisplay)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Item1.CourseLoad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Item2)
+                </td>
+                <td>
+                    @foreach (string s in item.Item3)
+                    {
+                    <a href="../../Instructor/Index/?search=@item.Item1.LastName">@s</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

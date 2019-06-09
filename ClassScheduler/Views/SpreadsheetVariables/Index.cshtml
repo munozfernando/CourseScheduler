@@ -1,0 +1,291 @@
+﻿@model IEnumerable<ClassScheduler.Models.SpreadsheetVariables>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StartingRowNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AcademicSemester)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddChangeDelete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Department)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SectionCRN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SectionNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CrossListID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Campus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ScheduleType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MoodleRequired)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InstructorApprovalRequired)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PartOfTerm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FixedCredit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MinimumCredits)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaximumCredits)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClassLimit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Monday)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tuesday)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Wednesday)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Thursday)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Friday)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Saturday)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sunday)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Building)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Room)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrimaryInstructorFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrimaryInstructorLastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrimaryInstructorNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrimaryInstructorTeachingPercentage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SecondaryInstructorFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SecondaryInstructorLastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SecondaryInstructorNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SecondaryInstructorTeachingPercentage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClassFeeDetailCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClassFeeAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SectionNotes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CrossListSubject)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CrossListCourseNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartmentComments)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DefaultFontStyle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DefaultFontSize)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+            <tr class="trEditableRow">
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ID" class="tdEditorLink"></a>
+                    @Html.DisplayFor(modelItem => item.StartingRowNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AcademicSemester)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AddChangeDelete)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Department)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SectionCRN)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CourseNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SectionNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CrossListID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CourseTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Campus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ScheduleType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MoodleRequired)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InstructorApprovalRequired)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PartOfTerm)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FixedCredit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MinimumCredits)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaximumCredits)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClassLimit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Monday)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tuesday)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Wednesday)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Thursday)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Friday)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Saturday)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sunday)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Building)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Room)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrimaryInstructorFirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrimaryInstructorLastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrimaryInstructorNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrimaryInstructorTeachingPercentage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SecondaryInstructorFirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SecondaryInstructorLastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SecondaryInstructorNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SecondaryInstructorTeachingPercentage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClassFeeDetailCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClassFeeAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SectionNotes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CrossListSubject)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CrossListCourseNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DepartmentComments)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DefaultFontStyle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DefaultFontSize)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

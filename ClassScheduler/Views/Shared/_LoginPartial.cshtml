@@ -1,0 +1,10 @@
+﻿@if (SessionVariables.LoggedIn) {
+    <ul class="nav navbar-nav navbar-right">
+        <li><a asp-controller="User" asp-action="Logout">Logout</a></li>
+    </ul>
+}
+else {
+    <ul class="nav navbar-nav navbar-right">
+        <li><a asp-controller="User" asp-action="Login">Login</a></li>
+    </ul>
+}

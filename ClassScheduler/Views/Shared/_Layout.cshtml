@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ClassScheduler</title>
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/css/chosen.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+        <script src="~/js/site.js"></script>
+        <script src="~/js/tables.js"></script>
+        <script src="~/js/sections.js"></script>
+        <script src="~/js/selectedCourse.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="srOnly" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <script src="~/js/selectedCourse.js"></script>
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/chosen.min.css" asp-append-version="true" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+        <script src="~/js/site.js"></script>
+        <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/css/chosen.css" />
+        <script src="~/js/tables.js"></script>
+    </environment>
+</head>
+<body>
+    <nav class="navbar navbarInverse navbarFixedTop">
+        <div class="container">
+            <div class="navbar-header">
+                @if (SessionVariables.LoggedIn) {
+                    <button type="button" class="navbarToggle" data-toggle="collapse" data-target=".navbarCollapse">
+                        <span class="srOnly">Toggle navigation</span>
+                        <span class="iconBar"></span>
+                        <span class="iconBar"></span>
+                        <span class="iconBar"></span>
+                    </button>
+                    <a asp-area="" asp-controller="Section" asp-action="Index" class="navbarHomeLink">Home</a>
+                }
+            </div>
+            <div class="navbarCollapse collapse">
+                @if (SessionVariables.LoggedIn) {
+                    <ul class="nav navbarLinkList">
+                        <li><a asp-area="" asp-controller="ImportExport" asp-action="Index">Import/Export</a></li>
+                        <li><a asp-area="" asp-controller="Room" asp-action="Index">Rooms</a></li>
+                        <li><a asp-area="" asp-controller="Instructor" asp-action="Index">Instructor</a></li>
+                        <li><a asp-area="" asp-controller="ScheduleValidator" asp-action="Index">Validate Schedule</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="btn dropdown-toggle navbar-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                More<img src="~/images/DownArrow.png" />
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <li><a asp-area="" asp-controller="AcademicSemester" asp-action="Index" class="dropdown-item">Academic Semesters</a></li>
+                                <li><a asp-area="" asp-controller="Building" asp-action="Index" class="dropdown-item">Buildings</a></li>
+                                <li><a asp-area="" asp-controller="Campus" asp-action="Index" class="dropdown-item">Campuses</a></li>
+                                <li><a asp-area="" asp-controller="Course" asp-action="Index" class="dropdown-item">Courses</a></li>
+                                <li><a asp-area="" asp-controller="Department" asp-action="Index" class="dropdown-item">Departments</a></li>
+                                <li><a asp-area="" asp-controller="PartOfTerm" asp-action="Index" class="dropdown-item">Part of Term</a></li>
+                                <li><a asp-area="" asp-controller="ScheduleType" asp-action="Index" class="dropdown-item">Schedule Types</a></li>
+                                <li><a asp-area="" asp-controller="SpreadsheetVariables" asp-action="Index" class="dropdown-item">Spreadsheet Layout</a></li>
+                                <li><hr /></li>
+                                <li><a asp-area="" asp-controller="User" asp-action="Index" class="dropdown-item">Users</a></li>
+                                <li><a asp-area="" asp-controller="Role" asp-action="Index" class="dropdown-item">User Roles</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                }
+
+                <partial name="_LoginPartial" />
+            </div>
+        </div>
+    </nav>
+    <partial name="_Messages" />
+    <div class="container bodyContent">
+        @RenderBody()
+    </div>
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/js/sections.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="~/js/tables.js"></script>
+        <script src="~/js/chosen.jquery.js" asp-append-version="true"></script>
+        <script src="~/js/chosen.proto.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+        </script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="~/js/tables.js"></script>
+        <script src="~/js/chosen.jquery.js" asp-append-version="true"></script>
+        <script src="~/js/chosen.proto.js" asp-append-version="true"></script>
+    </environment>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
